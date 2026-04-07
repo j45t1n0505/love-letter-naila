@@ -20,7 +20,9 @@ const LoveLetter = ({ text }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="max-w-3xl mx-auto my-8 sm:my-10 md:my-12 p-6 sm:p-10 md:p-20 bg-[#fffdfa] shadow-2xl relative border-l-[8px] sm:border-l-[15px] border-romantic"
+      whileHover={{ boxShadow: "0 0 30px rgba(219, 39, 119, 0.15)", scale: 1.01, y: -5 }}
+      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      className="max-w-3xl mx-auto my-8 sm:my-10 md:my-12 p-6 sm:p-10 md:p-20 bg-[#fffdfa] shadow-2xl relative border-l-[8px] sm:border-l-[15px] border-romantic cursor-pointer"
     >
       <div className="font-serif text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed sm:leading-loose italic">
         {text.split("").map((char, index) => (

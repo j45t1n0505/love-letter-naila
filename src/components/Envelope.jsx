@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 
 const Envelope = ({ isOpen, onClick }) => {
   return (
-    <div className="relative flex justify-center items-center py-12 sm:py-16 md:py-20 cursor-pointer px-4" onClick={onClick}>
+    <motion.div 
+      className="relative flex justify-center items-center py-12 sm:py-16 md:py-20 cursor-pointer px-4" 
+      onClick={onClick}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+    >
       <div style={{ perspective: "1000px" }}>
         <motion.div 
           className="relative w-64 sm:w-80 h-40 sm:h-56 bg-pink-200 rounded-bl-lg rounded-br-lg shadow-2xl overflow-visible"
@@ -38,14 +43,15 @@ const Envelope = ({ isOpen, onClick }) => {
       
       {!isOpen && (
         <motion.p 
-          className="absolute -bottom-10 font-sans text-romantic-dark animate-bounce"
+          className="absolute -bottom-10 font-sans text-romantic-dark animate-bounce cursor-pointer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          whileHover={{ scale: 1.05, color: "#db2777" }}
         >
           Klik untuk membuka surat 💌
         </motion.p>
       )}
-    </div>
+    </motion.div>
   );
 };
 

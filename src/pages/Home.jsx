@@ -30,7 +30,9 @@ const Home = () => {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-romantic-dark mb-3 sm:mb-4 px-2"
+          whileHover={{ scale: 1.05, color: "#db2777" }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-romantic-dark mb-3 sm:mb-4 px-2 cursor-pointer"
         >
           Untuk Naila ❤️
         </motion.h1>
@@ -38,7 +40,8 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 font-light mb-8 sm:mb-10 md:mb-12 px-2"
+          whileHover={{ scale: 1.02, color: "#d1556a" }}
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 font-light mb-8 sm:mb-10 md:mb-12 px-2 cursor-pointer"
         >
           Sebuah surat kecil dari seseorang yang sangat mencintaimu
         </motion.p>
@@ -59,10 +62,18 @@ const Home = () => {
             <Notes />
             
             <footer className="mt-12 sm:mt-16 md:mt-20 text-center border-t border-pink-200 pt-8 sm:pt-10 px-4">
-              <p className="font-serif italic text-romantic-dark text-base sm:text-lg md:text-xl">
+              <motion.p 
+                className="font-serif italic text-romantic-dark text-base sm:text-lg md:text-xl cursor-pointer"
+                whileHover={{ scale: 1.02, color: "#db2777" }}
+              >
                 "Untuk Naila, dengan cinta yang tidak akan pernah habis ❤️"
-              </p>
-              <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-400">© 2026 Justine Khalid</p>
+              </motion.p>
+              <motion.p 
+                className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-400 cursor-pointer"
+                whileHover={{ scale: 1.05, color: "#db2777" }}
+              >
+                © 2026 Justine Khalid
+              </motion.p>
             </footer>
           </motion.div>
         )}

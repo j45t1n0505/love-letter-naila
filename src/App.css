@@ -183,3 +183,42 @@
     border-right-color: var(--border);
   }
 }
+
+/* Hover Animation Styles */
+@keyframes gentle-lift {
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes soft-glow {
+  to {
+    box-shadow: 0 0 20px rgba(219, 39, 119, 0.2);
+  }
+}
+
+@keyframes color-pulse {
+  50% {
+    color: #db2777;
+  }
+}
+
+/* Global hover effects for interactive elements */
+button:hover,
+a:hover {
+  transition: all 0.3s ease;
+}
+
+/* Smooth text transitions */
+h1, h2, h3, h4, h5, h6, p, span {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Image hover effects */
+img {
+  transition: filter 0.4s ease, transform 0.3s ease;
+}
+
+img:hover {
+  filter: brightness(1.05) saturate(1.1);
+}
