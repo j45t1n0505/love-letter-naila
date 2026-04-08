@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useScrollIntoView } from "../hooks/useScrollIntoView";
 import FloatingHearts from "../components/FloatingHearts";
 import Envelope from "../components/Envelope";
 import LoveLetter from "../components/LoveLetter";
@@ -16,12 +15,6 @@ import nailaProfile from "../assets/naila-profile.jpg";
 const Home = () => {
   const [isOpened, setIsOpened] = useState(false);
   const [showContent, setShowContent] = useState(false);
-  
-  const letterRef = useScrollIntoView();
-  const photoRef = useScrollIntoView();
-  const notesRef = useScrollIntoView();
-  const instagramRef = useScrollIntoView();
-  const footerRef = useScrollIntoView();
 
   const handleOpen = () => {
     setIsOpened(true);
@@ -67,42 +60,12 @@ const Home = () => {
             animate={{ opacity: 1 }}
             className="pb-10 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6"
           >
-            <motion.div
-              ref={letterRef.ref}
-              initial={{ opacity: 0, y: 30 }}
-              animate={letterRef.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <LoveLetter text={letterContent} />
-            </motion.div>
-
-            <motion.div
-              ref={photoRef.ref}
-              initial={{ opacity: 0, y: 30 }}
-              animate={photoRef.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="hover-lift"
-            >
-              <PhotoFrame src={[naila1, naila2]} />
-            </motion.div>
-
-            <motion.div
-              ref={notesRef.ref}
-              initial={{ opacity: 0, y: 30 }}
-              animate={notesRef.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <Notes />
-            </motion.div>
+            <LoveLetter text={letterContent} />
+            <PhotoFrame src={[naila1, naila2]} />
+            <Notes />
             
             {/* Instagram Links */}
-            <motion.div
-              ref={instagramRef.ref}
-              initial={{ opacity: 0, y: 30 }}
-              animate={instagramRef.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-10 sm:mt-12 md:mt-14 text-center"
-            >
+            <div className="mt-10 sm:mt-12 md:mt-14 text-center">
               <motion.p 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -112,49 +75,33 @@ const Home = () => {
                 Follow kami di Instagram:
               </motion.p>
               <div className="flex justify-center gap-8 sm:gap-12 md:gap-16 flex-wrap">
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <InstagramProfile 
-                    username="@j45t1n"
-                    profileUrl="https://www.instagram.com/j45t1n/"
-                    profileImage={j45t1nProfile}
-                  />
-                </motion.div>
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <InstagramProfile 
-                    username="@n4i1llastecu_"
-                    profileUrl="https://www.instagram.com/n4i1llastecu_/"
-                    profileImage={nailaProfile}
-                  />
-                </motion.div>
+                <InstagramProfile 
+                  username="@j45t1n"
+                  profileUrl="https://www.instagram.com/j45t1n/"
+                  profileImage={j45t1nProfile}
+                />
+                <InstagramProfile 
+                  username="@n4i1llastecu_"
+                  profileUrl="https://www.instagram.com/n4i1llastecu_/"
+                  profileImage={nailaProfile}
+                />
               </div>
-            </motion.div>
+            </div>
             
-            <motion.footer 
-              ref={footerRef.ref}
-              initial={{ opacity: 0, y: 30 }}
-              animate={footerRef.isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-12 sm:mt-16 md:mt-20 text-center border-t border-pink-200 pt-8 sm:pt-10 px-4"
-            >
+            <footer className="mt-12 sm:mt-16 md:mt-20 text-center border-t border-pink-200 pt-8 sm:pt-10 px-4">
               <motion.p 
-                className="font-serif italic text-romantic-dark text-base sm:text-lg md:text-xl cursor-pointer hover-glow transition-all"
-                whileHover={{ scale: 1.05, color: "#db2777" }}
+                className="font-serif italic text-romantic-dark text-base sm:text-lg md:text-xl cursor-pointer"
+                whileHover={{ scale: 1.02, color: "#db2777" }}
               >
                 "Untuk Naila, dengan cinta yang tidak akan pernah habis ❤️"
               </motion.p>
               <motion.p 
-                className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-400 cursor-pointer hover-glow transition-all"
+                className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-400 cursor-pointer"
                 whileHover={{ scale: 1.05, color: "#db2777" }}
               >
                 © 2026 Justine Khalid
               </motion.p>
-            </motion.footer>
+            </footer>
           </motion.div>
         )}
       </AnimatePresence>
