@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Music, Pause, Play, Volume2, VolumeX } from "lucide-react";
-import musicFile from "../assets/romantic-music.mp3"; // Pastikan file ada di folder assets
+import musicFile1 from "../assets/romantic-music.mp3";
+import musicFile2 from "../assets/romantic-music2.mp3";
 
 const MusicPlayer = () => {
+  const playlist = [musicFile1, musicFile2];
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
+  const [currentTrack, setCurrentTrack] = useState(0);
   const audioRef = useRef(null);
 
   // Auto-hide tooltip setelah 5 detik
@@ -14,6 +17,23 @@ const MusicPlayer = () => {
     const timer = setTimeout(() => setShowTooltip(false), 5000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Handle ketika lagu selesai diputar
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleEnded = () => {
+      const nextTrack = (currentTrack + 1) % playlist.length;
+      setCurrentTrack(nextTrack);
+      setTimeout(() => {
+        audio.play();
+      }, 100);
+    };
+
+    audio.addEventListener("ended", handleEnded);
+    return () => audio.removeEventListener("ended", handleEnded);
+  }, [currentTrack, playlist.length]);
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -32,7 +52,7 @@ const MusicPlayer = () => {
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] flex flex-col items-end gap-2 sm:gap-3">
-      <audio ref={audioRef} src={musicFile} loop />
+      <audio ref={audioRef} src={playlist[currentTrack]} />
 
       <AnimatePresence>
         {showTooltip && (
