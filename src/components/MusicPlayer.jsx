@@ -70,23 +70,25 @@ const MusicPlayer = () => {
       <div className="flex gap-2">
         {/* Button Mute/Unmute */}
         <motion.button
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.15, y: -5 }}
           whileTap={{ scale: 0.9 }}
           onClick={toggleMute}
-          className="p-3 bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-pink-100 text-romantic-dark hover:bg-white transition-colors"
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          className="p-3 bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-pink-100 text-romantic-dark hover:bg-white transition-all duration-300 hover:shadow-xl hover:border-romantic"
         >
           {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
         </motion.button>
 
         {/* Main Play/Pause Button */}
         <motion.button
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.15, y: -5 }}
           whileTap={{ scale: 0.9 }}
           onClick={togglePlay}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
           className={`p-4 rounded-full shadow-xl flex items-center justify-center transition-all duration-500 ${
             isPlaying 
-            ? "bg-romantic text-white ring-4 ring-pink-100" 
-            : "bg-white text-romantic-dark border border-pink-200"
+            ? "bg-romantic text-white ring-4 ring-pink-100 hover:shadow-2xl hover:ring-pink-200" 
+            : "bg-white text-romantic-dark border border-pink-200 hover:border-romantic hover:shadow-lg"
           }`}
         >
           {isPlaying ? (

@@ -65,12 +65,19 @@ const Home = () => {
             <Notes />
             
             {/* Instagram Links */}
-            <div className="mt-10 sm:mt-12 md:mt-14 text-center">
+            <motion.div 
+              className="mt-10 sm:mt-12 md:mt-14 text-center"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+            >
               <motion.p 
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-sm sm:text-base text-gray-500 mb-8"
+                className="text-sm sm:text-base text-gray-500 mb-8 cursor-pointer transition-colors duration-300"
+                whileHover={{ color: "#db2777", scale: 1.05 }}
               >
                 Follow kami di Instagram:
               </motion.p>
@@ -86,22 +93,28 @@ const Home = () => {
                   profileImage={nailaProfile}
                 />
               </div>
-            </div>
+            </motion.div>
             
-            <footer className="mt-12 sm:mt-16 md:mt-20 text-center border-t border-pink-200 pt-8 sm:pt-10 px-4">
+            <motion.footer 
+              className="mt-12 sm:mt-16 md:mt-20 text-center border-t border-pink-200 pt-8 sm:pt-10 px-4"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6 }}
+            >
               <motion.p 
-                className="font-serif italic text-romantic-dark text-base sm:text-lg md:text-xl cursor-pointer"
-                whileHover={{ scale: 1.02, color: "#db2777" }}
+                className="font-serif italic text-romantic-dark text-base sm:text-lg md:text-xl cursor-pointer transition-all duration-300"
+                whileHover={{ scale: 1.05, color: "#db2777", y: -5 }}
               >
                 "Untuk Naila, dengan cinta yang tidak akan pernah habis ❤️"
               </motion.p>
               <motion.p 
-                className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-400 cursor-pointer"
-                whileHover={{ scale: 1.05, color: "#db2777" }}
+                className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-400 cursor-pointer transition-all duration-300"
+                whileHover={{ scale: 1.08, color: "#db2777", y: -3 }}
               >
                 © 2026 Justine Khalid
               </motion.p>
-            </footer>
+            </motion.footer>
           </motion.div>
         )}
       </AnimatePresence>
