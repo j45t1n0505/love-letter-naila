@@ -6,8 +6,11 @@ import LoveLetter from "../components/LoveLetter";
 import PhotoFrame from "../components/PhotoFrame";
 import Notes from "../components/Notes";
 import MusicPlayer from "../components/MusicPlayer";
+import InstagramProfile from "../components/InstagramProfile";
 import naila1 from "../assets/naila1.jpg";
 import naila2 from "../assets/naila2.jpg";
+import j45t1nProfile from "../assets/j45t1n-profile.jpg";
+import nailaProfile from "../assets/naila-profile.jpg";
 
 const Home = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -67,29 +70,21 @@ const Home = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-sm sm:text-base text-gray-500 mb-4"
+                className="text-sm sm:text-base text-gray-500 mb-8"
               >
                 Follow kami di Instagram:
               </motion.p>
-              <div className="flex justify-center gap-6 sm:gap-8 flex-wrap">
-                <motion.a 
-                  href="https://www.instagram.com/j45t1n/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, color: "#db2777" }}
-                  className="text-gray-600 hover:text-romantic-dark text-sm sm:text-base font-medium transition-colors"
-                >
-                  @j45t1n
-                </motion.a>
-                <motion.a 
-                  href="https://www.instagram.com/n4i1llastecu_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, color: "#db2777" }}
-                  className="text-gray-600 hover:text-romantic-dark text-sm sm:text-base font-medium transition-colors"
-                >
-                  @n4i1llastecu_
-                </motion.a>
+              <div className="flex justify-center gap-8 sm:gap-12 md:gap-16 flex-wrap">
+                <InstagramProfile 
+                  username="@j45t1n"
+                  profileUrl="https://www.instagram.com/j45t1n/"
+                  profileImage={j45t1nProfile}
+                />
+                <InstagramProfile 
+                  username="@n4i1llastecu_"
+                  profileUrl="https://www.instagram.com/n4i1llastecu_/"
+                  profileImage={nailaProfile}
+                />
               </div>
             </div>
             
