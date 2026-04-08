@@ -21,7 +21,7 @@ const Home = () => {
     setTimeout(() => setShowContent(true), 1500);
   };
 
-  const letterContent = "Naila sayang, sejak hari pertama kita bertemu, duniaku terasa berubah warnanya. Kamu bukan sekadar seseorang yang hadir, tapi kamu adalah alasan kenapa aku percaya bahwa keajaiban itu ada. Terima kasih sudah menjadi rumah yang paling nyaman, menjadi pendengar yang paling sabar, dan menjadi cinta yang paling tulus. Aku berjanji untuk selalu menjagamu, tumbuh bersamamu, dan memastikan bahwa di masa depan nanti, hanya ada tawa kita yang menghiasi hari. Kamu adalah anugerah terindah, dan aku sangat mencintaimu.";
+  const letterContent = "Naila sayang, sejak hari pertama kita bertemu, duniaku terasa berubah warnanya. Kamu bukan sekadar seseorang yang hadir, tapi kamu adalah alasan kenapa aku percaya bahwa keajaiban itu ada. Terima kasih sudah menjadi rumah yang paling nyaman, menjadi pendengar yang paling sabar, dan menjadi cinta yang paling tulus. Aku berjanji untuk selalu menjagamu, tumbuh bersamamu, dan memastikan bahwa di masa depan nanti, hanya ada tawa kita yang menghiasi hari. Kamu adalah anugerah terindah, dan aku sangat mencintaimu kemarin hari ini esok dan selamanya, aku tau ini semua sederhana ku harap kita bisa selalu bersama selamanya.";
 
   return (
     <div className="min-h-screen bg-romantic-light/30 selection:bg-romantic selection:text-white">
