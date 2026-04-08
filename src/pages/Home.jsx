@@ -61,6 +61,38 @@ const Home = () => {
             <PhotoFrame src={[naila1, naila2]} />
             <Notes />
             
+            {/* Instagram Links */}
+            <div className="mt-10 sm:mt-12 md:mt-14 text-center">
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-sm sm:text-base text-gray-500 mb-4"
+              >
+                Follow kami di Instagram:
+              </motion.p>
+              <div className="flex justify-center gap-6 sm:gap-8 flex-wrap">
+                <motion.a 
+                  href="https://www.instagram.com/j45t1n/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, color: "#db2777" }}
+                  className="text-gray-600 hover:text-romantic-dark text-sm sm:text-base font-medium transition-colors"
+                >
+                  @j45t1n
+                </motion.a>
+                <motion.a 
+                  href="https://www.instagram.com/n4i1llastecu_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, color: "#db2777" }}
+                  className="text-gray-600 hover:text-romantic-dark text-sm sm:text-base font-medium transition-colors"
+                >
+                  @n4i1llastecu_
+                </motion.a>
+              </div>
+            </div>
+            
             <footer className="mt-12 sm:mt-16 md:mt-20 text-center border-t border-pink-200 pt-8 sm:pt-10 px-4">
               <motion.p 
                 className="font-serif italic text-romantic-dark text-base sm:text-lg md:text-xl cursor-pointer"
